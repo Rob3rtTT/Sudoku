@@ -1,12 +1,12 @@
 require_relative 'grid.rb'
 class Game
-    attr_reader :board 
+    
 
     def initialize(board=Board.empty_grid)
         @board=board
     end
 
-    def play#loop
+    def play
         until @board.solved?
             system("clear")
             @board.render
@@ -58,7 +58,7 @@ class Game
     end
 
     private
-    
+    attr_reader :board 
 end
 
 game=Game.new(Board.from_file('./puzzles/sudoku1solved.txt'))
